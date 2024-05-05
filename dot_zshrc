@@ -1,0 +1,24 @@
+
+# Erlang build opts
+export KERL_CONFIGURE_OPTIONS="--disable-hipe \
+--without-javac \
+--enable-dynamic-ssl-lib \
+--enable-m64-build \
+--enable-gettimeofday-as-os-system-time \
+--with-ssl=$(brew --prefix openssl@1.1) \
+--with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config \
+--with-odbc=$(brew --prefix libiodbc)"
+export KERL_BUILD_DOCS=""
+export KERL_BUILD_PLT=true
+export CFLAGS="-O2 -g -fno-stack-check"
+export CPPFLAGS="-I$(brew --prefix libiodbc)/include"
+export LDFLAGS="-L$(brew --prefix libiodbc)/lib"
+
+# variables
+export EDITOR='nvim'
+
+# aliases
+alias vim="nvim"
+alias cz="chezmoi"
+
+eval "$(starship init zsh)"
