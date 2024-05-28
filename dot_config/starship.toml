@@ -1,2 +1,8 @@
+command_timeout = 1000
+
 [docker_context]
 format = ''
+
+
+[package]
+disabled = true

@@ -9,9 +9,8 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.color_scheme = "tokyonight_night"
 config.window_background_opacity = 1.00
--- config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 15.0
-
 
 -- Tabs
 config.use_fancy_tab_bar = false
