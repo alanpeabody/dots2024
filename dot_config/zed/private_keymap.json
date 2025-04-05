@@ -1,0 +1,128 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    // Global key bindings
+    "bindings": {
+      "ctrl-n": "pane::ActivateNextItem",
+      "ctrl-p": "pane::ActivatePreviousItem",
+
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      // How?
+      "ctrl-shift-h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "ctrl-shift-l": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+      "ctrl-shift-k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" }
+      ],
+      "ctrl-shift-j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" }
+      ],
+
+      "ctrl-f": "workspace::ToggleZoom",
+      "ctrl-t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      ", n": "workspace::ToggleLeftDock",
+      ", a": "workspace::ToggleRightDock",
+      ", s": "file_finder::Toggle",
+      ", g": "workspace::NewSearch",
+      "; q": "pane::CloseActiveItem",
+      ": q": "pane::CloseActiveItem",
+      ", t r": "task::Rerun",
+      ", r t": "task::Rerun",
+      ", r r": "task::Rerun"
+    }
+  },
+  {
+    // bindings for tasks (terminal has bracketed_paste enabled)
+    "context": "Terminal && !bracketed_paste",
+    "bindings": {
+      "k": "terminal::ScrollLineUp",
+      "j": "terminal::ScrollLineDown",
+      "K": "terminal::ScrollPageUp",
+      "J": "terminal::ScrollPageDown"
+    }
+  },
+  {
+    // bindings for normal terminal
+    "context": "Terminal && bracketed_paste",
+    "bindings": {}
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Put key bindings here if you want them to work in normal & visual mode.
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      ";": "command_palette::Toggle",
+      ":": "command_palette::Toggle",
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+      ", n": "workspace::ToggleLeftDock",
+      ", a": "workspace::ToggleRightDock",
+      ", f": "editor::Format",
+      ", s": "file_finder::Toggle",
+      ", g": "workspace::NewSearch",
+      ", ,": "workspace::Save",
+      ", d g": ["task::Spawn", { "task_name": "mix deps.get" }],
+      ", t o": ["task::Spawn", { "task_name": "mix test one" }],
+      ", t f": ["task::Spawn", { "task_name": "mix test file" }],
+      ", t F": ["task::Spawn", { "task_name": "mix test file failed" }],
+      ", t t": ["task::Spawn", { "task_name": "mix test failed" }],
+      ", t a": ["task::Spawn", { "task_name": "mix test app" }],
+      ", t A": ["task::Spawn", { "task_name": "mix test app failed" }],
+      ", t l": ["task::Spawn", { "task_name": "mix test" }],
+      ", t r": "task::Rerun",
+      ", r t": "task::Rerun",
+      ", r r": "task::Rerun",
+      ", i e": ["task::Spawn", { "task_name": "iex -S mix" }],
+      ", i s": ["task::Spawn", { "task_name": "iex -S mix phx.server" }]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      ", s": "file_finder::Toggle",
+      ", n": "workspace::ToggleLeftDock"
+    }
+  }
+]
