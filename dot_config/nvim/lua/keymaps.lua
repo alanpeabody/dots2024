@@ -29,8 +29,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<C-n>', '<cmd>:tabnext<CR>')
-vim.keymap.set('n', '<C-p>', '<cmd>:tabprev<CR>')
+vim.keymap.set('n', '<C-n>', '<cmd>:tabnext<CR>', { desc = 'Next tab' })
+vim.keymap.set('n', '<C-p>', '<cmd>:tabprev<CR>', { desc = 'Previous tab' })
+
+-- sort lines alphabetically
+vim.keymap.set('v', '<leader>s', "<cmd>:'<,'>sort<CR>", { desc = '[S]ort highlighted lines' })
 
 -- Strip trailing whitespace helper
 local trim_whitespace = function()
@@ -42,7 +45,7 @@ local trim_whitespace = function()
 end
 
 -- Strip On keybind
-vim.keymap.set('n', '<leader>w', trim_whitespace)
+vim.keymap.set('n', '<leader>w', trim_whitespace, { desc = 'Trim [W]hitespace' })
 
 -- Strip On save
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
