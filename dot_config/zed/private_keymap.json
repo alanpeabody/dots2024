@@ -35,7 +35,9 @@
       ],
 
       "ctrl-f": "workspace::ToggleZoom",
-      "ctrl-t": "workspace::ToggleBottomDock"
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-o": "workspace::ToggleLeftDock"
     }
   },
   {
@@ -44,10 +46,20 @@
       // "shift shift": "file_finder::Toggle"
     }
   },
+  // Ctrl j/k to select completions in insert mode
   {
-    "context": "Editor",
+    "context": "Editor && showing_completions",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
+    }
+  },
+  // Ctrl j/k to select files in file finder
+  {
+    "context": "FileFinder > Picker > Editor",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
     }
   },
   {
@@ -55,8 +67,8 @@
     "bindings": {
       ", n": "workspace::ToggleLeftDock",
       ", a": "workspace::ToggleRightDock",
-      ", s": "file_finder::Toggle",
-      ", g": "workspace::NewSearch",
+      ", s f": "file_finder::Toggle",
+      ", s g": "workspace::NewSearch",
       "; q": "pane::CloseActiveItem",
       ": q": "pane::CloseActiveItem",
       ", t r": "task::Rerun",
@@ -94,9 +106,11 @@
       ", n": "workspace::ToggleLeftDock",
       ", a": "workspace::ToggleRightDock",
       ", f": "editor::Format",
-      ", s": "file_finder::Toggle",
-      ", g": "workspace::NewSearch",
+      ", s f": "file_finder::Toggle",
+      ", s g": "workspace::NewSearch",
       ", ,": "workspace::Save",
+      ", w": "workspace::Save",
+      ", q": "pane::CloseActiveItem",
       ", d g": ["task::Spawn", { "task_name": "mix deps.get" }],
       ", t o": ["task::Spawn", { "task_name": "mix test one" }],
       ", t f": ["task::Spawn", { "task_name": "mix test file" }],
@@ -109,7 +123,10 @@
       ", r t": "task::Rerun",
       ", r r": "task::Rerun",
       ", i e": ["task::Spawn", { "task_name": "iex -S mix" }],
-      ", i s": ["task::Spawn", { "task_name": "iex -S mix phx.server" }]
+      ", i s": ["task::Spawn", { "task_name": "iex -S mix phx.server" }],
+      ", g p": ["task::Spawn", { "task_name": "git push" }],
+      ", g s": ["task::Spawn", { "task_name": "git status" }],
+      ", d c u": ["task::Spawn", { "task_name": "docker compose up" }]
     }
   },
   {
